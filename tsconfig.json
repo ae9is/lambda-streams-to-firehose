@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noErrorTruncation": true,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    // ref: https://middy.js.org/docs/best-practices/bundling/
+    // ref: https://www.npmjs.com/package/serverless-plugin-typescript
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "allowJs": false,
+    "target": "es2021",
+    "typeRoots": ["node_modules/@types"],
+    "types": [
+      "node",
+      "jest",
+    ],
+  },
+  "exclude": ["node_modules", "dist"],
+}
