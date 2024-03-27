@@ -28,8 +28,8 @@ import {
   _Record,
 } from '@aws-sdk/client-firehose'
 
-import { notEmpty, stringify } from 'utils'
-import * as pjson from '../../../../package.json'
+import * as pjson from 'package.json'
+import { notEmpty, stringify } from './utils'
 import * as c from './constants'
 import * as transform from './transformer'
 import * as router from './router'

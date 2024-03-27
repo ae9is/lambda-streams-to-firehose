@@ -4,6 +4,7 @@ import { unmarshall } from '@aws-sdk/util-dynamodb'
 
 import * as c from './constants'
 import { DynamoDBDataItem } from './handler'
+import { filter } from './utils'
 
 const debug = c.DEBUG
 
@@ -81,16 +82,6 @@ export function flattenDynamoDBTransformer(data: TransformerData) {
   const eventName = json?.eventName
   const filtered = { eventName, ...keys, ...filter(newImage, extractKeys) }
   return Buffer.from(JSON.stringify(filtered) + '\n', c.targetEncoding)
-}
-
-/**
- * Return an object with only specified keys in it
- */
-function filter(object: any, filterKeys: string[]) {
-  return Object.keys(object).filter(key => filterKeys.includes(key)).reduce((filtered: any, key: string) => {
-    filtered[key] = object[key]
-    return filtered
-  }, {})
 }
 
 export function transformRecords(
