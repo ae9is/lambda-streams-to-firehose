@@ -7,13 +7,14 @@ describe('Routing tests', function () {
   const defaultDeliveryStream = 'MyDeliveryStream'
   describe('Default Routing', function () {
     const records = [
+      //
       Buffer.from('test1', c.targetEncoding),
       Buffer.from('test2', c.targetEncoding),
     ]
     const data = router.routeToDestination(
       defaultDeliveryStream,
       records,
-      router.defaultRouting.bind(undefined),
+      router.defaultRouting.bind(undefined)
     )
     // check the record count
     it('Returns the correct number of records', function () {

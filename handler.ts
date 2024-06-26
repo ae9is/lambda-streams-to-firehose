@@ -246,7 +246,7 @@ async function handleResults(
       hadError = true
     }
     if (hadError) {
-      // If routing to any of the destination streams failed, or the whole thing failed, 
+      // If routing to any of the destination streams failed, or the whole thing failed,
       //  also route all records to the default delivery stream to avoid losing data.
       // If frequent failures were expected, this could be reworked to route only the failed batches of records.
       await processFinalRecords(firehoseClient, transformed, deliveryStreamName, deliveryStreamName)

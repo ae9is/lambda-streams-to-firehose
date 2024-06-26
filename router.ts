@@ -1,4 +1,3 @@
-
 export type RoutingFunction = (defaultDeliveryStreamName: string, records: Buffer[]) => RoutingMap
 export type RoutingMap = { [streamName: string]: Buffer[] }
 
@@ -12,7 +11,11 @@ export function defaultRouting(defaultDeliveryStreamName: string, records: Buffe
 /**
  * Apply a routing function to a group of records
  */
-export function routeToDestination(defaultDeliveryStreamName: string, records: Buffer[], routingFunction: RoutingFunction) {
+export function routeToDestination(
+  defaultDeliveryStreamName: string,
+  records: Buffer[],
+  routingFunction: RoutingFunction
+) {
   const routingMap = routingFunction(defaultDeliveryStreamName, records)
   return routingMap
 }

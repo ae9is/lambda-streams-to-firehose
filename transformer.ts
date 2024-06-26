@@ -12,11 +12,11 @@ type TransformerData = string | DynamoDBDataItem
 export type TransformerFunction = (data: TransformerData) => Buffer
 
 const transformerFunctions = {
-  'doNothingTransformer': doNothingTransformer,
-  'addNewlineTransformer': addNewlineTransformer,
-  'jsonToStringTransformer': jsonToStringTransformer,
-  'unmarshallDynamoDBTransformer': unmarshallDynamoDBTransformer,
-  'flattenDynamoDBTransformer': flattenDynamoDBTransformer,
+  doNothingTransformer: doNothingTransformer,
+  addNewlineTransformer: addNewlineTransformer,
+  jsonToStringTransformer: jsonToStringTransformer,
+  unmarshallDynamoDBTransformer: unmarshallDynamoDBTransformer,
+  flattenDynamoDBTransformer: flattenDynamoDBTransformer,
 }
 
 /** Emit buffer as text with newline */
@@ -61,7 +61,7 @@ export function unmarshallDynamoDBTransformer(data: TransformerData) {
 /**
  * Unmarshall DynamoDB streams data, and flatten/filter data, extracting only the specified keys from NewImage.
  * Data in Keys (i.e. id, sort) will always be extracted but can be overwritten by extract keys for NewImage if specified.
- * 
+ *
  * Also extracts data.eventName (INSERT, MODIFY, REMOVE). It's missing in the docs but present in the actual stream record.
  * ref: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_Record.html
  *      https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_StreamRecord.html
