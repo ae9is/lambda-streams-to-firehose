@@ -6,6 +6,7 @@
     "build": "tsc",
     "clean": "rm -rf node_modules dist .build",
     "lint": "tsc --noEmit && eslint *.ts __tests__/**/*.ts",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "start": "node dist/index.js",
     "test": "jest --detectOpenHandles",
     "update-packages": "ncu -u"
